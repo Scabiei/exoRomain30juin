@@ -1,10 +1,18 @@
 package exoRomain30juin.entity;
 
-public class Subject {
+import javax.persistence.*;
 
+@Entity
+@Table(name = "subject")
+public class Subject {
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
+    @Column(name="name")
     private String name;
+    @Column(name="duration")
     private int duration;
+    @Column(name="difficulty")
     private String difficulty;
 
     public Subject(int id, String name, int duration, String difficulty) {
@@ -12,6 +20,10 @@ public class Subject {
         this.name = name;
         this.duration = duration;
         this.difficulty = difficulty;
+    }
+
+    public Subject() {
+
     }
 
     public int getId() {

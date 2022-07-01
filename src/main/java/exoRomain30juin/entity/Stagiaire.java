@@ -1,9 +1,13 @@
 package exoRomain30juin.entity;
 
+import javax.persistence.*;
 import java.util.Date;
 
+@Entity
+@Table(name = "stagiaire")
 public class Stagiaire extends Personne {
-
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
     private Date birthdate;
     private int trainer_id;
@@ -13,6 +17,10 @@ public class Stagiaire extends Personne {
         this.id = id;
         this.birthdate = birthdate;
         this.trainer_id = trainer_id;
+    }
+
+    public Stagiaire() {
+
     }
 
     public int getId() {

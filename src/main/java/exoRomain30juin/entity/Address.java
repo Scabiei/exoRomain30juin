@@ -1,21 +1,35 @@
 package exoRomain30juin.entity;
 
-public class Adress {
+import javax.persistence.*;
 
+@Entity
+@Table(name = "address")
+public class Address {
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
+    @Column(name="street")
     private String street;
+    @Column(name="complement")
     private String complement;
+    @Column(name="zipcode")
     private String zipcode;
+    @Column(name="city")
     private String city;
+    @Column(name="country")
     private String country;
 
-    public Adress(int id, String street, String complement, String zipcode, String city, String country) {
+    public Address(int id, String street, String complement, String zipcode, String city, String country) {
         this.id = id;
         this.street = street;
         this.complement = complement;
         this.zipcode = zipcode;
         this.city = city;
         this.country = country;
+    }
+
+    public Address() {
+
     }
 
     public int getId() {
